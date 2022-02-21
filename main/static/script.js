@@ -1,6 +1,6 @@
 if (document.URL.includes("/posts")) {
-    get_posts()
-    like_color()
+    get_posts();
+    setTimeout(like_color(),3000)
 }
 if (document.URL.includes("/posts/my_posts")) {
     let drop = document.querySelector('.dropdown');
@@ -137,7 +137,7 @@ function get_posts(){
             let caption = data[i]['caption'];
             let post_image_path = data[i]['post_img'];
             let likes_sum = data[i]['likes'];
-            let id = data[i]['post_id']
+            let id = data[i]['post_id'];
             send_post(username,pfp_path,timestamp,caption,post_image_path,likes_sum,id)
         }
     })
