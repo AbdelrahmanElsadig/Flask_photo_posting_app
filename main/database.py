@@ -10,4 +10,6 @@ db = psycopg2.connect(
     password = db_info['password'],
     port = db_info['port']
 )
+db.autocommit = True
+db.set_session(autocommit=True)
 
