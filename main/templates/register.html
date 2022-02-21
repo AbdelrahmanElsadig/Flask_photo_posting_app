@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/styles/forms.css">
+{% endblock %}
+
+{% block content %}
+<div class="form">
+    <h1>Register</h1>
+    <form action='' onsubmit='return Signup()' class='register-form' method='post' enctype="multipart/form-data">
+        <input class='login' type="text" name="username" id="" placeholder='Username'>
+        <input class='login' type="text" name="user_password" id="" placeholder='Password'>
+        <input class='login' type="text" name="email" id="" placeholder='Email'>
+        <div>
+            <p>Profile Picture:</p>
+            <input class='form-control' type="file" name="pfp" id="" placeholder='Profile Image'>
+        </div>
+        <input class='login-btn' type="submit" name="login" id="">
+    </form>
+</div>
+{% endblock %}

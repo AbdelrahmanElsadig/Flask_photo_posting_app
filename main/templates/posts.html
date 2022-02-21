@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}
+Posts
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/styles/posts.css">
+{% endblock %}
+
+{% block content %}
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Sort By
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="/posts/likes">Likes</a></li>
+        <li><a class="dropdown-item" href="/posts/">Date Posted (default)</a></li>
+    </ul>
+</div> 
+<div class="container-fluid"><a href="/posts/my_posts" class="btn btn-danger">My posts</a></div>
+<div class="posts">
+
+</div>
+{% endblock %}

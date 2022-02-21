@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+Create Post
+{% endblock %}
+
+{% block content %}
+<form action="#" method="POST" onsubmit="return make_post()" enctype="multipart/form-data" class="create">
+    <div class="mb-3">
+        <label for="Image" class="form-label">Choose Photo</label>
+        <input class="form-control" type="file" name='post-image' id="formFile" onchange="preview()" enctype="multipart/form-data">
+    </div>
+    <img id="frame" src="" class="img-fluid"/>
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Caption</label>
+        <textarea name="caption" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button class="btn btn-dark">Upload</button>
+</form>
+
+
+<script>
+    function preview() {
+        frame.src = URL.createObjectURL(event.target.files[0]);
+    }
+
+    function clearImage() {
+        document.getElementById('formFile').value = null;
+        frame.src = "";
+    }
+</script>
+{% endblock %}

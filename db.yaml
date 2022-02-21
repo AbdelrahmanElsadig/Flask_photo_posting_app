@@ -1,0 +1,5 @@
+hostname : 'localhost'
+database : 'Flask_images'
+username : 'postgres'
+password : '!AweSomeNess150'
+port : 5432

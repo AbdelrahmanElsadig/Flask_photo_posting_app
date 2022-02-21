@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+Edit Profile
+{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="../static/styles/forms.css">
+{% endblock %}
+{% block content %}
+<div class="form">
+<h2>Change Username and Profile Picture</h2>
+<form action='#' class='edit-form' onsubmit="return edit()" method='post' enctype="multipart/form-data">
+    <input class='login' type="text" name="username" id="" placeholder='Username'>
+    <input class='form-control' type="file" name="pfp" id="" placeholder='pfp'>
+    <input class='login-btn' type="submit" name="login" id="">
+</form>
+</div>
+{% endblock %}
