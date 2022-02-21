@@ -19,4 +19,5 @@ CREATE TABLE likes (
     user_id BIGINT REFERENCES users(user_id),
     post_id BIGINT REFERENCES posts(post_id),
     is_like NUMERIC DEFAULT 0
+    PRIMARY KEY (user_id,post_id)
 )
