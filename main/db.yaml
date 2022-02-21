@@ -1,0 +1,5 @@
+hostname : 'ec2-34-233-157-189.compute-1.amazonaws.com'
+database : 'd4c2q127jg4psv'
+username : 'akfwbkspapakcv'
+password : '7fa5d2802e087e5942e6cf4f37a401200e463514d6bdc54eec284a7ebfe623b5'
+port : 5432
