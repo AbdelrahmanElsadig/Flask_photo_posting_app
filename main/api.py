@@ -6,10 +6,10 @@ import os
 import uuid
 import psycopg2.extras
 api = Api(app)
-POST_PATH_DB = '..\static\post_images'
-POST_PATH = '.\main\static\post_images'
-USER_PATH = '.\main\static\profile_pictures'
-USER_PATH_DB = '..\static\profile_pictures'
+POST_PATH_DB = '../static/post_images'
+POST_PATH = './main/static/post_images'
+USER_PATH = './main/static/profile_pictures'
+USER_PATH_DB = '../static/profile_pictures'
 ALLOWED_IMG_EXTENSIONS = ['GIF','JPEG','JPG','PNG']
 def img_check(filename):
     if '.' not in filename:
@@ -128,13 +128,11 @@ class post_creation(Resource):
             return {'msg': 'Invalid image file!'}
         try:
             id = str(uuid.uuid4())
+            path = os.path.join(POST_PATH, id + '.' + ext)
+            post_image.save(path)
             path = os.path.join(POST_PATH_DB,id + '.' + ext)
-            #post_image.save(path)
-            
         except Exception as error:
             return {'msg': str(error)}
-        finally:
-            return {'msg': 'Image cant be saved'}
         cur = db.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
         user_id = session['user_id']
         try:
