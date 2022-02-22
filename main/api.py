@@ -128,9 +128,9 @@ class post_creation(Resource):
             return {'msg': 'Invalid image file!'}
         try:
             id = str(uuid.uuid4())
-            path = os.path.join(POST_PATH, id + '.' + ext)
-            post_image.save(path)
             path = os.path.join(POST_PATH_DB,id + '.' + ext)
+            post_image.save(path)
+            
         except Exception as error:
             return {'msg': str(error)}
         cur = db.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
