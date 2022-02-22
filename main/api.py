@@ -131,8 +131,8 @@ class post_creation(Resource):
             path = os.path.join(POST_PATH, id + '.' + ext)
             post_image.save(path)
             path = os.path.join(POST_PATH_DB,id + '.' + ext)
-        except:
-            return {'msg': 'Image saving is the problem'}
+        except Exception as error:
+            return {'msg': error}
         cur = db.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
         user_id = session['user_id']
         try:
