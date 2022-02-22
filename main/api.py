@@ -132,7 +132,7 @@ class post_creation(Resource):
             post_image.save(path)
             path = os.path.join(POST_PATH_DB,id + '.' + ext)
         except Exception as error:
-            return {'msg': error}
+            return {'msg': str(error)}
         cur = db.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
         user_id = session['user_id']
         try:
