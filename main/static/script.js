@@ -1,6 +1,6 @@
 if (document.URL.includes("/posts")) {
     get_posts();
-    setTimeout(like_color(),3000)
+    setTimeout(like_color(),5000)
 }
 if (document.URL.includes("/posts/my_posts")) {
     let drop = document.querySelector('.dropdown');
