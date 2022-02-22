@@ -133,9 +133,13 @@ class post_creation(Resource):
         path = os.path.join(POST_PATH_DB,id + '.' + ext)
         cur = db.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
         user_id = session['user_id']
-        cur.execute(f'''INSERT INTO posts (caption,post_img,user_id)
-                    VALUES ('{caption}', '{path}', '{user_id}')''')
-        db.commit()
+        try:
+            cur.execute(f'''INSERT INTO posts (caption,post_img,user_id)
+                        VALUES ('{caption}', '{path}', '{user_id}')''')
+            db.commit()
+        except:
+            return {'msg': 'Query did not run correctly'}
+        
         print({'caption': caption,'img_path':path,'user_id':user_id})
         return {'caption': caption,'img_path':path,'user_id':user_id}
 api.add_resource(post_creation,'/post_creation')
