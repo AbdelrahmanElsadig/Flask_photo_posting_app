@@ -100,7 +100,14 @@ function make_post(){
         method: 'post',
         body: form
     })
-    .then(res => {return res.json()})
+    .then(res => {
+        if (res.status == '500'){
+            return {'msg':'Internal server error'}
+        }
+        else {
+            return res.json()
+        }
+    })
     .then(data => {
             if ('msg' in data){
                 let h3 = document.createElement('h3');
