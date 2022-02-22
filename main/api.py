@@ -1,6 +1,5 @@
 from flask import jsonify, session,request
 from flask_restful import Api,Resource
-from itsdangerous import json
 from main.database import db
 from main import app
 import os
@@ -127,10 +126,13 @@ class post_creation(Resource):
         ext = img_check(post_image.filename)
         if not ext:
             return {'msg': 'Invalid image file!'}
-        id = str(uuid.uuid4())
-        path = os.path.join(POST_PATH, id + '.' + ext)
-        post_image.save(path)
-        path = os.path.join(POST_PATH_DB,id + '.' + ext)
+        try:
+            id = str(uuid.uuid4())
+            path = os.path.join(POST_PATH, id + '.' + ext)
+            post_image.save(path)
+            path = os.path.join(POST_PATH_DB,id + '.' + ext)
+        except:
+            return {'msg': 'Image saving is the problem'}
         cur = db.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
         user_id = session['user_id']
         try:
